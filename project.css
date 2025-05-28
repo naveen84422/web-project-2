@@ -1,0 +1,156 @@
+@import url("https://fonts.cdnfonts.com/css/samsung-sharp-sans");
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  font-family: "Samsung Sharp Sans", sans-serif;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+/* Card Container */
+.card_container {
+  height: 250px;
+  width: 350px;
+  margin: 100px auto;
+  perspective: 1000px;
+}
+
+/* Card Element */
+.card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+  position: relative;
+}
+
+/* Card Flip Effect */
+.card_container:hover .card {
+  transform: rotateY(180deg);
+}
+
+/* Front and Back Card Styles */
+.front_card,
+.back_card {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Front Side */
+.front_card {
+  background-color: white;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.front_card img {
+  height: 75px;
+  width: 200px;
+  margin: 65px auto;
+  display: block;
+  max-width: 80%;
+}
+
+/* Back Side */
+.back_card {
+  padding: 2px;
+  border-radius: 20px;
+  background: linear-gradient(red, blue, green, black);
+  transform: rotateY(180deg);
+  animation: flow-border 3s linear infinite;
+  position: relative;
+  background-size: 300% 300%;
+}
+
+/* Animated Background */
+@keyframes flow-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Content Inside Back Card */
+.backcard_content {
+  padding: 10px;
+  font-weight: 500;
+  transform: rotateY(0deg);
+  background: rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  height: 100%;
+  text-align: left;
+  border-radius: 15px;
+}
+
+/* Scrollbar Customization */
+.backcard_content::-webkit-scrollbar {
+  width: 6px;
+}
+.backcard_content::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+
+/* Text Styling */
+.name {
+  font-size: 10px;
+  color: skyblue;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 20px;
+  color: antiquewhite;
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.description {
+  font-size: 15px;
+  color: aquamarine;
+  margin-bottom: 10px;
+}
+
+/* Button Styling */
+.btn {
+  padding: 0px 12px;
+  border: 1px solid rgb(168, 52, 123);
+  background-color: aqua;
+  color: black;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 10px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.btn:hover {
+  background-color: bisque;
+  color: blueviolet;
+  border-color: chartreuse;
+}
